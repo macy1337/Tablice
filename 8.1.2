@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void generuj(int T[])
+{
+    for(int i = 0; i < 10; i++)
+    {
+        cout << "T[" << i << "]=";
+        cin >> T[i];
+    }
+}
+
+void pokaz(int T[])
+{
+    for(int i = 9; i > -1; i--)
+    {
+        cout << "T[" << i << "]=" << T[i] << " ";
+    }
+}
+
+int main()
+{
+    int T[10];
+    generuj(T);
+    pokaz(T);
+}
