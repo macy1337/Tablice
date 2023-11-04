@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+void generuj(int T[], int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+        cout << "T[" << i << "]=";
+        cin >> T[i];
+    }
+}
+
+void pokaz(int T[], int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+        cout << "T[" << i << "]=" << T[i] << " ";
+    }
+}
+
+int main()
+{
+    int T[1000], n;
+    cout << "Podaj n: ";
+    cin >> n;
+    if (n >= 1 and n <= 30)
+    {
+        generuj(T, n);
+        pokaz(T, n);
+    }
+    else
+    {
+        cout << "Niepoprawna ilosc liczb" << endl;
+    }
+}
