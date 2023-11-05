@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+int los(int a, int b)
+{
+    return (rand() % b - a + 1) + a;
+}
+
+void generuj(int T[], int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+        cout << "T[" << i << "]=";
+        cin >> T[i];
+    }
+}
+
+void pokaz(int T[], int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+        cout << "T[" << i << "]=" << T[i] << " ";
+    }
+}
+
+int maks(int T[], int n)
+{
+    int max = T[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (T[i] > max)
+        {
+            max = T[i];
+        }
+    }
+    return max;
+}
+
+void najmniejsza(int T[], int n, int maks)
+{
+    int min = T[0];
+    int min2 = maks;
+    int ilemin2 = 0;
+    for (int i = 1; i < n; i++)
+    {
+        if (T[i] < min)
+        {
+            min = T[i];
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (T[i] > min and min2 > T[i])
+        {
+            min2 = T[i];
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if(T[i] == min2)
+        {
+            ilemin2++;
+        }
+    }
+    cout << endl << "Najmniejsza wartosc to: " << min << endl;
+    cout << "Druga najmniejsza wartosc to: " << min2 << endl;
+    cout << "Druga najmniejsza wartosc wystepuje " << ilemin2 << " razy" << endl;
+}
+
+int main()
+{
+    int T[1000], n;
+    cout << "Podaj n: ";
+    cin >> n;
+    srand(time(NULL));
+    generuj(T, n);
+    pokaz(T, n);
+    najmniejsza(T,n,maks(T,n));
+}
