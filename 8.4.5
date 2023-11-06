@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void generuj(string T[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << "T[" << i << "]=";
+        cin >> T[i];
+    }
+}
+
+void pokaz(string T[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        string str = T[i];
+        bool pewniak;
+        for(int y = 0; y < str.size(); y++)
+        {
+           
+        }
+        
+        
+        cout << "T[" << i << "]=" << T[i] << " ";
+    }
+}
+
+int main()
+{
+    string T[9999999];
+    int n;
+    cout << "Podaj n: ";
+    cin >> n;
+    generuj(T,n);
+    pokaz(T,n);
+    return 0;
+}
