@@ -23,5 +23,5 @@ int main()
     }
 
     for (int i = 0; i < 3; i++)
-        if (parz(T[i])) cout << T[i] << " ";
+        if (parz(T[i] == 1)) cout << T[i] << " ";
 }
