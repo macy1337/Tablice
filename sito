@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+void generuj(int T[], int n)
+{
+    int i, m;
+    for (i = 2; i <= n; i++) T[i] = 1;
+    i = 2;
+    while (i <= n)
+    {
+        m = 2 * i;
+        while (m <= n)
+        {
+            T[m] = 0;
+            m += i;
+        }
+        do i++; while (T[i] == 0 and i <= n);
+    }
+}
+
+int main()
+{
+    int T[10000]; int n;
+    cout << "Podaj n: ";
+    cin >> n;
+    generuj(T, n);
+    for (int i = 2; i < n; i++)
+    {
+        cout << "T[" << i << "]=" << T[i] << endl;
+    }
+}
