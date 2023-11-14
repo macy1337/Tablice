@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void generuj(string T[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << "T[" << i << "]=";
+        cin >> T[i];
+    }
+}
+
+bool sum_1(string liczba)
+{
+    if (liczba[0] == '1')
+    {
+        for(int i = 1; i < liczba.size(); i++)
+        {
+            if (liczba[i] != '0') return 0;
+        }
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+void pokaz(string T[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (sum_1(T[i]) == 1)
+        {
+        cout << "T[" << i << "]=" << T[i] << " ";
+        }
+    }
+}
+
+int main()
+{
+    string T[9999];
+    int n;
+    cout << "Podaj n: ";
+    cin >> n;
+    generuj(T,n);
+    pokaz(T,n);
+}
