@@ -11,26 +11,21 @@ void generuj(string T[], int n)
     }
 }
 
-bool parzysta(string liczba)
+bool parzyste(string liczba)
 {
-    bool jest = 1;
-    int t;
     for (int i = 0; i < liczba.size(); i++)
     {
-        t = liczba[i] - 48;
-        if (t % 2 != 0)
-        {
-            jest = 0;
-        }
+        int t = liczba[i] - 48;
+        if(t % 2 != 0) return false;
     }
-    return jest;
+    return true;
 }
 
 void pokaz(string T[], int n)
 {
     for (int i = 0; i < n; i++)
     {
-        if (parzysta(T[i]) == 1)
+        if (parzyste(T[i]) == true)
         {
             cout << "T[" << i << "]=" << T[i] << " ";
         }
@@ -39,10 +34,11 @@ void pokaz(string T[], int n)
 
 int main()
 {
-    string T[1000];
+    string T[1000]; 
     int n;
     cout << "Podaj n: ";
     cin >> n;
     generuj(T, n);
     pokaz(T, n);
+    return 0;
 }
