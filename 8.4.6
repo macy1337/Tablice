@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-void generuj(string T[], int n)
+void generuj(int T[], int n)
 {
     for (int i = 0; i < n; i++)
     {
@@ -11,27 +11,27 @@ void generuj(string T[], int n)
     }
 }
 
-bool sum_1(string liczba)
+bool suma(int liczba)
 {
-    if (liczba[0] == '1')
+    string str = to_string(liczba);
+    int x = str[0] - 48;
+    if (x == 1)
     {
-        for(int i = 1; i < liczba.size(); i++)
+        for (int i = 1; i < str.size(); i++)
         {
-            if (liczba[i] != '0') return 0;
+            int y = str[i] - 48;
+            if (y != 0) return false;
         }
-        return 1;
+        return true;
     }
-    else
-    {
-        return 0;
-    }
+    return false;
 }
 
-void pokaz(string T[], int n)
+void pokaz(int T[], int n)
 {
     for (int i = 0; i < n; i++)
     {
-        if (sum_1(T[i]) == 1)
+        if (suma(T[i]) == true)
         {
         cout << "T[" << i << "]=" << T[i] << " ";
         }
@@ -40,10 +40,11 @@ void pokaz(string T[], int n)
 
 int main()
 {
-    string T[9999];
+    int T[1000];
     int n;
     cout << "Podaj n: ";
     cin >> n;
-    generuj(T,n);
-    pokaz(T,n);
+    generuj(T, n);
+    pokaz(T, n);
+    return 0;
 }
