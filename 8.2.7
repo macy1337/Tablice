@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-int los(int a, int b)
+int losuj(int a, int b)
 {
-    return (rand() % b - a + 1) + a;
+    return (rand() % (b - a + 1)) + a;
 }
 
 void generuj(int T[], int n)
 {
     for(int i = 0; i < n; i++)
     {
-        T[i] = los(1,10);
+        T[i] = losuj(1,10);
     }
 }
 
@@ -22,7 +22,7 @@ void pokaz(int T[], int n)
     }
 }
 
-void maks(int T[], int n)
+void najwieksza2(int T[], int n)
 {
     int max = T[0];
     int max2 = 0;
@@ -36,7 +36,7 @@ void maks(int T[], int n)
     }
     for (int i = 0; i < n; i++)
     {
-        if (T[i] < max and max2 < T[i])
+        if (T[i] < max and T[i] > max2)
         {
             max2 = T[i];
         }
@@ -48,18 +48,18 @@ void maks(int T[], int n)
             ilemax2++;
         }
     }
-    cout << endl << "Najwieksza wartosc to: " << max << endl;
-    cout << "Druga najwieksza wartosc to: " << max2 << endl;
-    cout << "Druga najwieksza wartosc pojawia sie " << ilemax2 << " razy" << endl;
+    cout << endl << "T[max2]=" << max2 << ", pojawia sie " << ilemax2 << " razy" << endl;
 }
 
 int main()
 {
-    int T[1000], n;
+    int T[1000];
+    int n;
     cout << "Podaj n: ";
     cin >> n;
     srand(time(NULL));
     generuj(T, n);
     pokaz(T, n);
-    maks(T, n);
+    najwieksza2(T, n);
+    return 0;
 }
